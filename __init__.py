@@ -28,6 +28,9 @@ import bpy
 from bpy.props import BoolProperty
 from bpy.types import AddonPreferences
 
+from . import ot_main_tools
+from . import ot_material_tools
+
 class OctaneToolsPreferences(AddonPreferences):
     bl_idname = __package__
 
@@ -50,12 +53,12 @@ def register():
         bpy.utils.register_class(cls)
     
     # Now import and register the tools
-    from . import ot_material_tools
+    ot_main_tools.main_tools_register()
     ot_material_tools.register()
 
 def unregister():
     # Import for unregistration
-    from . import ot_material_tools
+    ot_main_tools.main_tools_register()
     ot_material_tools.unregister()
     
     # Unregister preferences

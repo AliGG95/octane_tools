@@ -1967,6 +1967,3 @@ def unregister():
     
     # Unregister main tools
     ot_main_tools.main_tools_unregister()
-
-if __name__ == "__main__":
-    register()
